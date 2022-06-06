@@ -30,7 +30,10 @@ class TestController extends Controller
             }
 
     }
-        echo($count);
+        return response()->json([
+            "status" => "Success",
+            "Number of palindromes is"=> $count
+        ], 200);
   }
 
 }
