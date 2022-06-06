@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-     public function palindrome(){
+    public function palindrome(){
         $count=0;
         $palindromes = array("level", "radar", "sweet","lolol");
                 $N=count($palindromes);
@@ -29,20 +29,22 @@ class TestController extends Controller
                 $count+=1;
             }
 
-    }
+        }
         return response()->json([
             "status" => "Success",
             "Number of palindromes is"=> $count
         ], 200);
-  }
-  public function secondsPassed(){
-        $starttime = mktime(4,14,1732);
+    }
+    public function secondsPassed(){
+        $starttime = mktime(0,0,0,4,14,1732);
         $endtime = microtime(true);
         $timediff = $endtime - $starttime;
 
-   return response()->json([
+        return response()->json([
             "status" => "Success",
             "Seconds passed since 1732:"=> $timediff
         ], 200);
-  }
+    }
+
+
 }
