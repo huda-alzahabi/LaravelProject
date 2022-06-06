@@ -64,7 +64,7 @@ class TestController extends Controller
         $first_element=reset($inner_arr);
         $string=json_encode($first_element,true);
         $array=json_decode($string,true);
-         $key2 = "text";
+        $key2 = "text";
         $result = $array[$key2];
         return $result;
     }
@@ -82,6 +82,20 @@ class TestController extends Controller
     //     curl_close($curl);
 
     // }
+
+    public function team(){
+        $students = array("Pablo", "Joe", "Sara","Ayman","Nour","Samir","Malak");
+        $N=count($students);
+        $array=array();
+        for ($x = 0; $x <$N; $x=$x+2) {
+            if($x<count($students)-2){
+               $arr= array($students[$x],$students[$x+1]);
+           array_push($array,$arr);}
+        }
+        array_push($array,$students[$N-1]);
+        return $array;
+    }
+
     public function nominee(){
         $students = array("Pablo", "Joe", "Sara","Pablo","Nour","Samir","Pablo");
         $N=count($students);
