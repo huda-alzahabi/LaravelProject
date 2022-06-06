@@ -35,6 +35,7 @@ class TestController extends Controller
             "Number of palindromes is"=> $count
         ], 200);
     }
+
     public function secondsPassed(){
         $starttime = mktime(0,0,0,4,14,1732);
         $endtime = microtime(true);
@@ -45,6 +46,7 @@ class TestController extends Controller
             "Seconds passed since 1732:"=> $timediff
         ], 200);
     }
+
     public function textOnly(){
         $curl = curl_init();
         $url="https://icanhazdadjoke.com/slack";
@@ -67,4 +69,26 @@ class TestController extends Controller
         return $result;
     }
 
+    // public function getRecipe(){
+    //     $curl = curl_init();
+    //     $url="https://api.punkapi.com/v2/beers";
+    //     curl_setopt($curl, CURLOPT_URL, $url);
+    //     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    //     curl_setopt($curl,CURLOPT_CONNECTTIMEOUT, 4);
+    //     $json = curl_exec($curl);
+    //     if(!$json) {
+    //         echo curl_error($curl);
+    //     }
+    //     curl_close($curl);
+
+    // }
+    public function nominee(){
+        $students = array("Pablo", "Joe", "Sara","Pablo","Nour","Samir","Pablo");
+        $N=count($students);
+        $r=rand(0,$N-1);
+        return response()->json([
+            "status" => "Success",
+            "Nominee:"=> $students[$r]
+        ], 200);
+    }
 }
