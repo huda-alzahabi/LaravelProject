@@ -35,5 +35,14 @@ class TestController extends Controller
             "Number of palindromes is"=> $count
         ], 200);
   }
+  public function secondsPassed(){
+        $starttime = mktime(4,14,1732);
+        $endtime = microtime(true);
+        $timediff = $endtime - $starttime;
 
+   return response()->json([
+            "status" => "Success",
+            "Seconds passed since 1732:"=> $timediff
+        ], 200);
+  }
 }
